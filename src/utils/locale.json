@@ -1,0 +1,30 @@
+{
+  "en": {
+    "error": "Error",
+    "error_body": "Invalid XML. Please check your input.",
+    "title": "XML Formatter",
+    "labels": {
+      "data": "Paste or type your XML here...",
+      "input": "Input",
+      "output": "Output"
+    },
+    "buttons": {
+      "copy": "Copy",
+      "copied": "Copied!"
+    }
+  },
+  "es": {
+    "error": "Error",
+    "error_body": "XML invalido. Por favor revise su entrada.",
+    "title": "Formateador de XML",
+    "labels": {
+      "data": "Pega o escribe tu XML aquí...",
+      "input": "Entrada",
+      "output": "Salida"
+    },
+    "buttons": {
+      "copy": "Copiar",
+      "copied": "Copiado!"
+    }
+  }
+}
