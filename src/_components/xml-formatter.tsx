@@ -98,6 +98,7 @@ export default function XMLFormatter({ lang = "en" }: { lang?: "en" | "es" }) {
           </button>
         </div>
       </div>
+
       <div
         className={clsx([
           "mx-auto flex max-w-3xl gap-4",
