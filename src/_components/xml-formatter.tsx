@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback, Fragment } from "react";
-import { AlertCircle, Check, Columns2, Copy, Rows2Icon } from "lucide-react";
+import { AlertCircle, Check, Copy } from "lucide-react";
 import locale from "~/utils/locale.json";
 import xmlFormatter from "xml-formatter";
 import type LocaleStrings from "~/utils/types";
