@@ -9,7 +9,7 @@ type PageProps = {
 
 export default function HomePage({ params }: PageProps) {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center">
+    <main className="h-screen max-h-screen pb-4 pt-16">
       <LocaleSwitcher lang={params.lang} />
       <XMLFormatter lang={params.lang} />
     </main>
