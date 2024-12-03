@@ -6,7 +6,7 @@ export default function LocaleSwitcher({
   lang?: "en" | "es";
 }) {
   return (
-    <div className="absolute top-5 flex rounded-md border border-gray-200">
+    <div className="absolute left-1/2 top-5 flex -translate-x-1/2 rounded-md border border-gray-200">
       <Link
         href={"/en"}
         className={
