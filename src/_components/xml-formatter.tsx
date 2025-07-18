@@ -90,14 +90,14 @@ export default function XMLFormatter({ lang = "en" }: { lang?: "en" | "es" }) {
             },
           ])}
         >
-          <h2 className="h-10 text-lg font-semibold">
+          <h2 className="h-10 text-lg font-semibold text-gray-900 dark:text-gray-100">
             {localeStrings.labels.input}
           </h2>
           <textarea
             placeholder={localeStrings.labels.data}
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            className="w-full flex-1 resize-none rounded-md border border-gray-200 p-4 outline-none transition focus:border-blue-400"
+            className="w-full flex-1 resize-none rounded-md border border-gray-200 bg-white p-4 text-gray-900 placeholder-gray-400 outline-none transition focus:border-blue-400 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100 dark:placeholder-gray-500 dark:focus:border-blue-500"
           />
         </div>
 
@@ -110,16 +110,17 @@ export default function XMLFormatter({ lang = "en" }: { lang?: "en" | "es" }) {
           ])}
         >
           <div className="flex h-10 items-center justify-between">
-            <h2 className="text-lg font-semibold">
+            <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
               {localeStrings.labels.output}
             </h2>
             {output && (
               <button
                 onClick={handleCopy}
                 className={clsx([
-                  "flex items-center gap-2 rounded-md border border-gray-200 px-2 py-1 outline-none transition hover:bg-gray-200",
+                  "flex items-center gap-2 rounded-md border border-gray-200 bg-white px-2 py-1 text-gray-900 outline-none transition hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700",
                   {
-                    "bg-green-600 text-white": isCopied,
+                    "bg-green-600 text-white hover:bg-green-700 dark:bg-green-600 dark:text-white dark:hover:bg-green-700":
+                      isCopied,
                   },
                 ])}
               >
@@ -140,9 +141,9 @@ export default function XMLFormatter({ lang = "en" }: { lang?: "en" | "es" }) {
 
           <pre
             className={clsx([
-              "flex-1 rounded-md bg-gray-200 p-4",
+              "flex-1 rounded-md bg-gray-100 p-4 text-gray-900 dark:bg-gray-800 dark:text-gray-100",
               {
-                "whitespace-pre-wrap text-red-400": !!error,
+                "whitespace-pre-wrap text-red-500 dark:text-red-400": !!error,
                 "overflow-auto": !error,
                 "max-h-[81.4vh]": showColumns,
                 "max-h-[40.7vh]": !showColumns,
