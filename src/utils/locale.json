@@ -10,7 +10,9 @@
     },
     "buttons": {
       "copy": "Copy",
-      "copied": "Copied!"
+      "copied": "Copied!",
+      "minimize": "Minimize",
+      "expand": "Expand"
     }
   },
   "es": {
@@ -24,7 +26,9 @@
     },
     "buttons": {
       "copy": "Copiar",
-      "copied": "Copiado!"
+      "copied": "Copiado!",
+      "minimize": "Minimizar",
+      "expand": "Expandir"
     }
   }
 }

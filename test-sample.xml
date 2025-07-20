@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bookstore xmlns:fiction="http://example.com/fiction" xmlns:nonfiction="http://example.com/nonfiction">
+  <book id="1" category="fiction" available="true">
+    <title lang="en">The Great Gatsby</title>
+    <author>
+      <firstName>F. Scott</firstName>
+      <lastName>Fitzgerald</lastName>
+      <birthYear>1896</birthYear>
+    </author>
+    <publisher>Charles Scribner's Sons</publisher>
+    <publicationDate>1925-04-10</publicationDate>
+    <price currency="USD">12.99</price>
+    <description><![CDATA[A classic American novel set in the Jazz Age, exploring themes of wealth, love, and the American Dream.]]></description>
+    <tags>
+      <tag>classic</tag>
+      <tag>american literature</tag>
+      <tag>jazz age</tag>
+    </tags>
+  </book>
+  <book id="2" category="nonfiction" available="false">
+    <title lang="en">A Brief History of Time</title>
+    <author>
+      <firstName>Stephen</firstName>
+      <lastName>Hawking</lastName>
+      <birthYear>1942</birthYear>
+    </author>
+    <publisher>Bantam Doubleday Dell Publishing Group</publisher>
+    <publicationDate>1988-04-01</publicationDate>
+    <price currency="USD">15.99</price>
+    <description><![CDATA[A popular science book that explores complex concepts in cosmology and physics in an accessible way.]]></description>
+    <tags>
+      <tag>science</tag>
+      <tag>cosmology</tag>
+      <tag>physics</tag>
+    </tags>
+    <!-- This book is currently out of stock -->
+  </book>
+  <book id="3" category="fiction">
+    <title lang="es">Cien Años de Soledad</title>
+    <author>
+      <firstName>Gabriel</firstName>
+      <lastName>García Márquez</lastName>
+      <birthYear>1927</birthYear>
+    </author>
+    <publisher>Editorial Sudamericana</publisher>
+    <publicationDate>1967-06-05</publicationDate>
+    <price currency="USD">14.50</price>
+    <description><![CDATA[A landmark novel in magical realism, telling the multi-generational story of the Buendía family.]]></description>
+    <tags>
+      <tag>magical realism</tag>
+      <tag>latin american literature</tag>
+      <tag>family saga</tag>
+    </tags>
+  </book>
+  <metadata>
+    <totalBooks>3</totalBooks>
+    <lastUpdated>2025-07-19T10:30:00Z</lastUpdated>
+    <storeInfo>
+      <name>Digital Book Collection</name>
+      <location>Online</location>
+      <contact email="info@bookstore.com" phone="+1-555-0123"/>
+    </storeInfo>
+  </metadata>
+</bookstore>

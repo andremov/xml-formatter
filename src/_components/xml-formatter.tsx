@@ -1,12 +1,11 @@
 "use client";
 
-import { useState, useEffect, useCallback, Fragment } from "react";
-import { AlertCircle, Check, Copy } from "lucide-react";
-import locale from "~/utils/locale.json";
+import { useState, useEffect, useCallback } from "react";
+import { AlertCircle } from "lucide-react";
 import xmlFormatter from "xml-formatter";
 import type LocaleStrings from "~/utils/types";
 import clsx from "clsx";
-import Header from "./header";
+import { TextArea } from "./text-area";
 
 const debounce = (func: (arg: string) => void, delay: number) => {
   let timeoutId: NodeJS.Timeout;
@@ -16,13 +15,16 @@ const debounce = (func: (arg: string) => void, delay: number) => {
   };
 };
 
-export default function XMLFormatter({ lang = "en" }: { lang?: "en" | "es" }) {
+export default function XMLFormatter({
+  localeStrings,
+  showColumns,
+}: {
+  localeStrings: LocaleStrings;
+  showColumns: boolean;
+}) {
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
   const [error, setError] = useState("");
-  const [isCopied, setIsCopied] = useState(false);
-  const [showColumns, setShowColumns] = useState(true);
-  const localeStrings = locale[lang] as LocaleStrings;
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const formatXML = useCallback(
@@ -54,98 +56,50 @@ export default function XMLFormatter({ lang = "en" }: { lang?: "en" | "es" }) {
     formatXML(input);
   }, [input, formatXML]);
 
-  const handleCopy = async () => {
-    try {
-      await navigator.clipboard.writeText(output);
-      setIsCopied(true);
-      setTimeout(() => setIsCopied(false), 2000);
-    } catch (err) {
-      console.error("Failed to copy text: ", err);
-    }
-  };
-
   return (
-    <div className="container mx-auto flex h-full flex-col">
-      <Header
-        setShowColumns={setShowColumns}
-        lang={lang}
-        showColumns={showColumns}
-      />
-
+    <div className="container mx-auto flex h-full max-h-full flex-col overflow-hidden bg-gray-900 text-white">
       <div
         className={clsx([
-          "flex flex-1 gap-4",
+          "flex flex-1 flex-col gap-1 overflow-hidden md:gap-2 lg:px-2",
           {
-            "flex-row": showColumns,
-            "flex-col": !showColumns,
+            "md:flex-row": showColumns,
+            "md:flex-col": !showColumns,
           },
         ])}
       >
-        <div
-          className={clsx([
-            "flex flex-col gap-2",
-            {
-              "w-1/2": showColumns,
-              "flex-1": !showColumns,
-            },
-          ])}
+        <TextArea
+          title={localeStrings.labels.input}
+          value={input}
+          showColumns={showColumns}
+          copyActionLabel={localeStrings.buttons.copy}
+          copiedActionLabel={localeStrings.buttons.copied}
+          minimizeLabel={localeStrings.buttons.minimize}
+          expandLabel={localeStrings.buttons.expand}
         >
-          <h2 className="h-10 text-lg font-semibold text-gray-100">
-            {localeStrings.labels.input}
-          </h2>
           <textarea
+            name="input"
             placeholder={localeStrings.labels.data}
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            className="w-full flex-1 resize-none rounded-md border border-gray-600 bg-gray-800 p-4 text-gray-100 placeholder-gray-500 outline-none transition focus:border-blue-500"
+            className="w-full flex-1 resize-none rounded-md border border-gray-600 bg-gray-800 p-4 text-white placeholder-gray-400 outline-none transition focus:border-blue-500"
           />
-        </div>
+        </TextArea>
 
-        <div
-          className={clsx([
-            "flex flex-col gap-2",
-            {
-              "w-1/2": showColumns,
-            },
-          ])}
+        <TextArea
+          title={localeStrings.labels.output}
+          value={output}
+          showColumns={showColumns}
+          copyActionLabel={localeStrings.buttons.copy}
+          copiedActionLabel={localeStrings.buttons.copied}
+          minimizeLabel={localeStrings.buttons.minimize}
+          expandLabel={localeStrings.buttons.expand}
         >
-          <div className="flex h-10 items-center justify-between">
-            <h2 className="text-lg font-semibold text-gray-100">
-              {localeStrings.labels.output}
-            </h2>
-            {output && (
-              <button
-                onClick={handleCopy}
-                className={clsx([
-                  "flex items-center gap-2 rounded-md border border-gray-600 bg-gray-800 px-2 py-1 text-gray-100 outline-none transition hover:bg-gray-700",
-                  {
-                    "bg-green-600 text-white hover:bg-green-700": isCopied,
-                  },
-                ])}
-              >
-                {isCopied ? (
-                  <Fragment>
-                    <Check className="h-4 w-4" />
-                    <span>{localeStrings.buttons.copied}</span>
-                  </Fragment>
-                ) : (
-                  <Fragment>
-                    <Copy className="h-4 w-4" />
-                    <span>{localeStrings.buttons.copy}</span>
-                  </Fragment>
-                )}
-              </button>
-            )}
-          </div>
-
           <pre
             className={clsx([
-              "flex-1 rounded-md bg-gray-800 p-4 text-gray-100",
+              "flex-1 overflow-x-hidden text-wrap break-words rounded-md bg-gray-800 p-4 text-gray-100",
               {
                 "whitespace-pre-wrap text-red-400": !!error,
                 "overflow-auto": !error,
-                "max-h-[81.4vh]": showColumns,
-                "max-h-[40.7vh]": !showColumns,
               },
             ])}
           >
@@ -161,7 +115,7 @@ export default function XMLFormatter({ lang = "en" }: { lang?: "en" | "es" }) {
               output
             )}
           </pre>
-        </div>
+        </TextArea>
       </div>
     </div>
   );

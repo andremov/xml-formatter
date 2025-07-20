@@ -57,7 +57,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/favicon.svg" />
       </head>
       <body className="bg-gray-900 text-gray-100">
-        <ServiceWorkerRegistration />
+        {/* <ServiceWorkerRegistration /> */}
         <OfflineIndicator />
         {children}
       </body>
