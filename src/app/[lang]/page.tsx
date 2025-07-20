@@ -9,7 +9,7 @@ type PageProps = {
 
 export default function HomePage({ params }: PageProps) {
   return (
-    <main className="h-screen max-h-screen bg-white pb-4 pt-16 transition-colors dark:bg-gray-900">
+    <main className="h-screen max-h-screen bg-gray-900 pb-4 pt-16">
       <LocaleSwitcher lang={params.lang} />
       <XMLFormatter lang={params.lang} />
     </main>

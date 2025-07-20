@@ -7,27 +7,21 @@
     scroll-behavior: smooth;
   }
 
-  body {
-    transition:
-      background-color 0.2s ease,
-      color 0.2s ease;
-  }
-
-  /* Custom scrollbar for dark mode */
+  /* Custom scrollbar */
   ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-gray-100 dark:bg-gray-800;
+    @apply bg-gray-800;
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply rounded-full bg-gray-300 dark:bg-gray-600;
+    @apply rounded-full bg-gray-600;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-gray-400 dark:bg-gray-500;
+    @apply bg-gray-500;
   }
 }
