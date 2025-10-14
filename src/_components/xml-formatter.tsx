@@ -44,11 +44,7 @@ function XMLNode({ content, depth }: XMLNodeProps) {
     !firstLine.includes("/>");
 
   if (!isFoldable) {
-    return (
-      <div className="my-1 leading-5" style={{ marginLeft: 18 }}>
-        {content}
-      </div>
-    );
+    return <div className="my-1 ml-5 leading-5">{content}</div>;
   }
 
   const tagName = openTagMatch[1];
@@ -56,8 +52,8 @@ function XMLNode({ content, depth }: XMLNodeProps) {
 
   if (isCollapsed) {
     return (
-      <div className="my-1 flex" style={{ paddingLeft: 4 }}>
-        <div className="flex-1" style={{ marginLeft: 18 }}>
+      <div className="my-1 flex pl-1">
+        <div className="ml-5 flex-1">
           <div className="relative flex items-center leading-5">
             <button
               onClick={toggleCollapse}
@@ -81,11 +77,8 @@ function XMLNode({ content, depth }: XMLNodeProps) {
   const closingTag = lines[lines.length - 1];
 
   return (
-    <div
-      className="my-1 flex overflow-hidden rounded-xl border-l border-dashed border-gray-600"
-      style={{ paddingLeft: 4 }}
-    >
-      <div className="flex-1" style={{ marginLeft: 18 }}>
+    <div className="my-1 flex overflow-hidden rounded-xl border-l border-dashed border-gray-600 pl-1">
+      <div className="ml-5 flex-1">
         <div className="relative flex items-center leading-5">
           <button
             onClick={toggleCollapse}
