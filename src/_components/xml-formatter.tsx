@@ -40,7 +40,6 @@ export default function XMLFormatter({
     setInput(sample);
   };
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const formatXML = useCallback(
     debounce((value: string) => {
       if (!value.trim()) {
@@ -57,7 +56,6 @@ export default function XMLFormatter({
         });
         setOutput(formatted);
         setError("");
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (error) {
         setError(localeStrings.error_body);
         setOutput("");
