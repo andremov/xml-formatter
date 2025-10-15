@@ -24,7 +24,6 @@
     "incremental": true,
 
     /* Path Aliases */
-    "baseUrl": ".",
     "paths": {
       "~/*": ["./src/*"]
     }
@@ -34,7 +33,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "**/*.cjs",
+    "**/*.mjs",
     "**/*.js",
     ".next/types/**/*.ts"
   ],

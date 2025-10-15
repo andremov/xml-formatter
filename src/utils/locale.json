@@ -3,6 +3,9 @@
     "error": "Error",
     "error_body": "Invalid XML. Please check your input.",
     "title": "XML Formatter",
+    "owner": "Built by",
+    "author": "Andrés Movilla",
+    "description": "A tool to format and validate XML.",
     "labels": {
       "data": "Paste or type your XML here...",
       "input": "Input",
@@ -12,13 +15,17 @@
       "copy": "Copy",
       "copied": "Copied!",
       "minimize": "Minimize",
-      "expand": "Expand"
+      "expand": "Expand",
+      "sample": "Load Sample"
     }
   },
   "es": {
     "error": "Error",
     "error_body": "XML invalido. Por favor revise su entrada.",
     "title": "Formateador de XML",
+    "owner": "Creado por",
+    "author": "Andrés Movilla",
+    "description": "Una herramienta para formatear y validar XML.",
     "labels": {
       "data": "Pega o escribe tu XML aquí...",
       "input": "Entrada",
@@ -28,7 +35,8 @@
       "copy": "Copiar",
       "copied": "Copiado!",
       "minimize": "Minimizar",
-      "expand": "Expandir"
+      "expand": "Expandir",
+      "sample": "Cargar Ejemplo"
     }
   }
 }
